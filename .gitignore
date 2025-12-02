@@ -1,3 +1,8 @@
+# Input files
 **/*.txt
 
+# Assembly output dir
 **/build/
+
+# Rust output dir
+**/target/
