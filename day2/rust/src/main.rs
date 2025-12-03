@@ -1,6 +1,4 @@
-use std::
-    fs::read_to_string
-;
+use std::fs::read_to_string;
 
 struct Range {
     left: i64,
@@ -39,15 +37,14 @@ impl Range {
             let i_as_str = i.to_string();
             let i_str_len = i_as_str.len();
 
-            for j in 1..(i_str_len/2)+1 {
+            for j in 1..(i_str_len / 2) + 1 {
                 if i_str_len % j != 0 {
                     continue;
                 }
 
-
                 let mut parts: Vec<&str> = Vec::new();
                 for ji in 0..(i_str_len / j) {
-                    parts.push(&i_as_str[ji*j..(ji+1)*j]);
+                    parts.push(&i_as_str[ji * j..(ji + 1) * j]);
                 }
 
                 let is_invalid_id = parts.iter().fold(true, |acc, i| acc && (*i == parts[0]));
@@ -87,25 +84,37 @@ fn main() {
             })
             .collect();
 
-        let invalid_ids = ranges.iter().map(|range| range.get_invalid_ids()).collect::<Vec<Vec<i64>>>().concat();
-        
+        let invalid_ids = ranges
+            .iter()
+            .map(|range| range.get_invalid_ids())
+            .collect::<Vec<Vec<i64>>>()
+            .concat();
+
         let mut invalid_id_sum = 0;
         for id in invalid_ids {
             invalid_id_sum += id;
         }
-        
+
         println!("Part 1: {}", invalid_id_sum);
 
-        let invalid_ids2 = ranges.iter().map(|range| range.get_invalid_ids2()).collect::<Vec<Vec<i64>>>().concat();
+        let invalid_ids2 = ranges
+            .iter()
+            .map(|range| range.get_invalid_ids2())
+            .collect::<Vec<Vec<i64>>>()
+            .concat();
         let mut invalid_id_sum2 = 0;
         for id in invalid_ids2 {
             invalid_id_sum2 += id;
         }
-        
+
         println!("Part 2: {}", invalid_id_sum2);
     }
 }
 
 fn read_lines(filename: &str) -> Vec<String> {
-    read_to_string(filename).unwrap().lines().map(String::from).collect()
+    read_to_string(filename)
+        .unwrap()
+        .lines()
+        .map(String::from)
+        .collect()
 }
