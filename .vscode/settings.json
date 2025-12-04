@@ -1,6 +1,9 @@
 {
     "editor.formatOnSave": true,
     "rust-analyzer.linkedProjects": [
-        "day3/rust/Cargo.toml"
+        "day1/rust/Cargo.toml",
+        "day2/rust/Cargo.toml",
+        "day3/rust/Cargo.toml",
+        "day4/rust/Cargo.toml",
     ]
 }
