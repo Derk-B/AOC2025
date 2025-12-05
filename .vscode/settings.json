@@ -5,5 +5,6 @@
         "day2/rust/Cargo.toml",
         "day3/rust/Cargo.toml",
         "day4/rust/Cargo.toml",
+        "day5/rust/Cargo.toml",
     ]
 }
